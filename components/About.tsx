@@ -74,11 +74,11 @@ export default function About() {
             <div className={styles.personalTraits}>
               <div className={styles.trait}>
                 <h4>🎧 The Listener</h4>
-                <p>朋友口中的「穩定力量」。善於傾聽，並給予真誠的建議與陪伴。</p>
+                <p>Known as a steady presence among friends. Great at listening and offering sincere advice and support.</p>
               </div>
               <div className={styles.trait}>
                 <h4>✨ The Believer</h4>
-                <p>相信凡事總有出路，沒有解決不了的問題。</p>
+                <p>Believes there is always a way out. No problem is too big to solve.</p>
               </div>
             </div>
 
@@ -94,14 +94,13 @@ export default function About() {
             <div className={styles.worldView}>
               <h4>🌍 Global Perspective</h4>
               <p>
-                留學期間走訪世界各國，從倫敦的霧都街巷到冰島的極光，
-                深信世界之大，視野決定格局。
+                Traveled across the world during my studies abroad — from the misty streets of London to the Northern Lights in Iceland. I believe the world is vast, and perspective shapes everything.
               </p>
             </div>
           </div>
         </div>
 
-        {/* 技能區塊 */}
+        {/* Skills Section */}
         <div className={`${styles.skills} ${isVisible ? styles.visible : ''}`}>
           <h3>Core Skills</h3>
           <div className={styles.skillGrid}>

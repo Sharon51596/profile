@@ -12,7 +12,7 @@ export default function Hero() {
   useEffect(() => {
     setIsVisible(true)
     
-    // 打字機效果
+    // Typewriter effect
     let index = 0
     const timer = setInterval(() => {
       if (index <= fullText.length) {
@@ -28,26 +28,26 @@ export default function Hero() {
 
   return (
     <section id="home" className={styles.hero}>
-      {/* 背景裝飾 */}
+      {/* Background decorations */}
       <div className={styles.bgDecor}>
-        {/* 浮動音符 */}
+        {/* Floating notes */}
         <span className={styles.note} style={{ top: '15%', left: '8%' }}>♪</span>
         <span className={styles.note} style={{ top: '70%', left: '5%' }}>♫</span>
         <span className={styles.note} style={{ top: '25%', right: '10%' }}>♪</span>
         <span className={styles.note} style={{ top: '80%', right: '8%' }}>♫</span>
         
-        {/* 圓形裝飾 */}
+        {/* Circle decorations */}
         <div className={styles.circle} style={{ top: '10%', left: '15%' }}></div>
         <div className={styles.circle} style={{ bottom: '20%', right: '12%' }}></div>
         <div className={styles.circleOutline} style={{ top: '60%', left: '10%' }}></div>
         <div className={styles.circleOutline} style={{ top: '30%', right: '5%' }}></div>
         
-        {/* 線條裝飾 */}
+        {/* Line decorations */}
         <div className={styles.line} style={{ top: '40%', left: '3%' }}></div>
         <div className={styles.line} style={{ bottom: '30%', right: '3%' }}></div>
       </div>
 
-      {/* 浮動粒子 */}
+      {/* Floating particles */}
       <div className={styles.particles}>
         {[...Array(8)].map((_, i) => (
           <div key={i} className={styles.particle} style={{ '--delay': `${i * 1.5}s`, '--x': `${10 + i * 12}%` } as React.CSSProperties} />
@@ -56,7 +56,7 @@ export default function Hero() {
 
       <div className={`${styles.container} ${isVisible ? styles.visible : ''}`}>
         <div className={styles.playerContainer}>
-          {/* 唱片光暈 */}
+          {/* Vinyl glow */}
           <div className={styles.vinylGlow}></div>
           <Vinyl isPlaying={true} label="Now Playing" profileImage="/images/profile.JPG" />
         </div>
@@ -85,7 +85,7 @@ export default function Hero() {
              <p>Skilled in stakeholder communication, cross-team alignment, and fast-paced project execution.</p>
           </div>
           
-          {/* 快速標籤 */}
+          {/* Quick tags */}
           <div className={styles.quickTags}>
             <span>Marketing</span>
             <span>Events</span>
@@ -103,7 +103,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* 滾動提示 */}
+      {/* Scroll hint */}
       <div className={styles.scrollHint}>
         <div className={styles.scrollMouse}>
           <div className={styles.scrollWheel}></div>
@@ -111,7 +111,7 @@ export default function Hero() {
         <span>Scroll to explore</span>
       </div>
       
-      {/* 底部波浪分隔 */}
+      {/* Bottom wave */}
       <div className={styles.waveBottom}>
         <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
           <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="var(--bg-color)"/>

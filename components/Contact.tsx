@@ -27,7 +27,7 @@ export default function Contact() {
   return (
     <section id="contact" className={styles.contact} ref={sectionRef}>
       <div className={styles.container}>
-        {/* 標題區 */}
+        {/* Header */}
         <div className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
           <span className={styles.label}>Get In Touch</span>
           <h2 className={styles.title}>Let&#39;s Connect</h2>
@@ -36,9 +36,9 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* 主要內容區 */}
+        {/* Main Content */}
         <div className={styles.content}>
-          {/* 左側 - 聯絡資訊 */}
+          {/* Left - Contact Info */}
           <div className={`${styles.infoCard} ${isVisible ? styles.visible : ''}`}>
             <h3>Ma Yu-Ting (Sharon)</h3>
             <p className={styles.location}>Based in Taipei, Taiwan</p>
@@ -62,7 +62,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* 右側 - 裝飾性內容 */}
+          {/* Right - Decorative */}
           <div className={`${styles.decorCard} ${isVisible ? styles.visible : ''}`}>
             <div className={styles.vinylDecor}>
               <div className={styles.vinyl}>
@@ -83,7 +83,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* 底部 */}
+        {/* Footer */}
         <footer className={`${styles.footer} ${isVisible ? styles.visible : ''}`}>
           <div className={styles.footerLine}></div>
           <p>© 2025 Sharon Ma. All Rights Reserved.</p>
