@@ -29,7 +29,11 @@ export default function Projects() {
       id: 1,
       title: 'Volkswagen Taiwan',
       role: 'Activation Campaign',
-      description: 'Supported activation campaigns by managing timelines and asset delivery. Coordinated logistics for multi-channel activations and prepared post-campaign evaluations.',
+      bullets: [
+        'Supported activation campaigns by managing timelines and asset delivery',
+        'Coordinated logistics for multi-channel activations',
+        'Prepared post-campaign evaluations'
+      ],
       year: '2024',
       track: 'Track 01',
       tags: ['Timeline Management', 'Asset Delivery', 'Multi-channel'],
@@ -41,7 +45,10 @@ export default function Projects() {
       id: 2,
       title: 'Darlie Campaign',
       role: 'Script & Copywriting',
-      description: 'Led script planning and copywriting for social media content, ensuring brand voice alignment across all deliverables.',
+      bullets: [
+        'Led script planning and copywriting for social media content',
+        'Ensured brand voice alignment across all deliverables'
+      ],
       year: '2024',
       track: 'Track 02',
       tags: ['Copywriting', 'Content Strategy', 'Social Media'],
@@ -53,7 +60,11 @@ export default function Projects() {
       id: 3,
       title: 'Fu Jen 61st Anniversary',
       role: 'Event General Coordinator',
-      description: 'Coordinated logistics and scheduling for a multi-day university event. Managed manpower allocation and ensured smooth execution through on-site coordination.',
+      bullets: [
+        'Coordinated logistics and scheduling for a multi-day university event',
+        'Managed manpower allocation across multiple teams',
+        'Ensured smooth execution through on-site coordination'
+      ],
       year: '2022',
       track: 'Track 03',
       tags: ['Event Management', 'On-site Operations', 'Team Leadership'],
@@ -65,7 +76,11 @@ export default function Projects() {
       id: 4,
       title: 'UK Senior Dating Market',
       role: 'Research Team Leader',
-      description: 'Conducted consumer analysis for the UK market. Designed strategic recommendations to improve user engagement and led research planning.',
+      bullets: [
+        'Conducted consumer analysis for the UK market',
+        'Designed strategic recommendations to improve user engagement',
+        'Led research planning and coordinated team deliverables'
+      ],
       year: '2024',
       track: 'Track 04',
       tags: ['Market Research', 'Consumer Analysis', 'Strategy'],
@@ -116,7 +131,7 @@ export default function Projects() {
                       target="_blank" 
                       rel="noopener noreferrer"
                       className={styles.playBtn}
-                      aria-label={project.linkText}
+                      aria-label={project.linkText || 'View'}
                     >
                       <span className={styles.playIcon}>▶</span>
                     </a>
@@ -128,7 +143,11 @@ export default function Projects() {
                   <span className={styles.year}>{project.year}</span>
                   <span className={styles.role}>{project.role}</span>
                 </div>
-                <p>{project.description}</p>
+                <ul className={styles.bulletList}>
+                  {project.bullets.map((bullet, i) => (
+                    <li key={i}>{bullet}</li>
+                  ))}
+                </ul>
                 <div className={styles.tags}>
                   {project.tags.map(tag => (
                     <span key={tag} className={styles.tag}>{tag}</span>

@@ -264,11 +264,32 @@
   color: #888;
 }
 
-.info > p {
+/* 列點樣式 */
+.bulletList {
+  list-style: none;
+  margin: 0 0 1.2rem 0;
+  padding: 0;
+}
+
+.bulletList li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
   color: #bbb;
-  margin-bottom: 1.2rem;
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.bulletList li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  opacity: 0.6;
+}
+
+.bulletList li:last-child {
+  margin-bottom: 0;
 }
 
 .tags {
