@@ -1,0 +1,327 @@
+.projects {
+  padding: 8rem 2rem;
+  background-color: var(--bg-color);
+  background-image: linear-gradient(0deg, var(--bg-secondary) 0%, var(--bg-color) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(183, 110, 121, 0.03) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem 3rem;
+}
+
+.album {
+  background: transparent;
+  perspective: 1000px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.album.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cover {
+  position: relative;
+  aspect-ratio: 1;
+  background: #111;
+  margin-bottom: 2rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+  overflow: visible;
+  border-radius: 2px;
+}
+
+.album:hover .cover {
+  transform: translateY(-15px) rotateX(5deg);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(183, 110, 121, 0.1);
+}
+
+.vinylDisk {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  bottom: 2%;
+  left: 2%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #111, #000);
+  background-image: repeating-radial-gradient(
+    #111,
+    #111 2px,
+    #181818 3px,
+    #181818 4px
+  );
+  z-index: 0;
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+}
+
+.vinylCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  background: radial-gradient(circle, var(--accent-light) 0%, var(--accent) 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.album:hover .vinylDisk {
+  transform: translateX(50%) rotate(30deg);
+}
+
+.coverArt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2a2525 0%, #181515 100%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album:hover .coverArt {
+  border-color: rgba(183, 110, 121, 0.4);
+  box-shadow: inset 0 0 30px rgba(183, 110, 121, 0.05);
+}
+
+/* 有圖片時的覆蓋層 */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.coverArt::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3h1v1H1V3zm2-2h1v1H3V1z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* 播放按鈕 */
+.playBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 70px;
+  height: 70px;
+  background: rgba(183, 110, 121, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  box-shadow: 0 0 30px rgba(183, 110, 121, 0.5);
+}
+
+.album:hover .playBtn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.playBtn:hover {
+  background: var(--accent);
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 50px rgba(183, 110, 121, 0.7);
+}
+
+.playIcon {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 4px;
+}
+
+.trackNum {
+  font-family: monospace;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.album:hover .trackNum {
+  opacity: 1;
+}
+
+.coverArt h3,
+.overlay h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  line-height: 1.3;
+  font-weight: 400;
+  font-family: 'Playfair Display', serif;
+  transition: transform 0.3s ease;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.album:hover .coverArt h3,
+.album:hover .overlay h3 {
+  transform: scale(1.05);
+}
+
+.info {
+  padding: 0 0.5rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.album:hover .info {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.8rem;
+}
+
+.year {
+  font-family: monospace;
+}
+
+.role {
+  font-style: italic;
+  color: #888;
+}
+
+.info > p {
+  color: #bbb;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  font-size: 0.7rem;
+  color: #888;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.3rem 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* 影片連結 */
+.videoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
+}
+
+.videoLink:hover {
+  border-bottom-color: var(--accent);
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  .album:hover .vinylDisk {
+    transform: translateX(30%) rotate(20deg);
+  }
+  
+  .album:hover .cover {
+    transform: translateY(-10px);
+  }
+
+  .playBtn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}

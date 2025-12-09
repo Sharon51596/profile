@@ -1,0 +1,147 @@
+.vinylWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.large { width: 400px; height: 400px; }
+.medium { width: 300px; height: 300px; }
+.small { width: 150px; height: 150px; }
+
+/* 外圈 - 會旋轉 */
+.vinylOuter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #181818;
+  box-shadow: 
+    0 0 0 2px #3a3a3a,
+    0 0 30px rgba(0,0,0,0.6);
+  transition: transform 1s ease;
+}
+
+.spinning {
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 唱片紋路 */
+.grooves {
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    #181818,
+    #181818 2px,
+    #222 3px,
+    #222 4px
+  );
+  opacity: 0.9;
+}
+
+/* 中心照片/標籤 - 固定不動，更大 */
+.label {
+  position: absolute;
+  width: 55%;
+  height: 55%;
+  background: radial-gradient(circle, #d4a5ad 0%, #b76e79 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #1a1a1a;
+  box-shadow: 
+    0 0 0 4px rgba(183, 110, 121, 0.6),
+    0 0 0 8px rgba(24, 24, 24, 0.8),
+    0 0 20px rgba(0,0,0,0.5);
+  z-index: 5;
+  overflow: hidden;
+}
+
+.labelText {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.brand {
+  font-size: 1.2rem;
+  margin-top: 2px;
+  font-family: serif;
+}
+
+/* 唱針構造 - 調整位置避免遮擋 */
+.tonearm {
+  position: absolute;
+  top: -30px;
+  right: -60px;
+  width: 150px;
+  height: 250px;
+  pointer-events: none;
+  transform-origin: 100px 40px;
+  transform: rotate(-35deg);
+  transition: transform 1s ease;
+  z-index: 10;
+}
+
+.tonearm.playing {
+  transform: rotate(15deg);
+}
+
+.pivot {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #d4a5ad, #b76e79);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.arm {
+  position: absolute;
+  top: 38px;
+  right: 27px;
+  width: 8px;
+  height: 180px;
+  background: linear-gradient(90deg, #c0c0c0, #e8e8e8, #c0c0c0);
+  transform: rotate(12deg);
+  transform-origin: top center;
+  border-radius: 4px;
+}
+
+.headshell {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  width: 25px;
+  height: 35px;
+  background: #3a3a3a;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .large { width: 300px; height: 300px; }
+  
+  .tonearm { 
+    right: -40px; 
+    transform: scale(0.75); 
+  }
+  
+  .tonearm.playing {
+    transform: scale(0.75) rotate(15deg);
+  }
+}

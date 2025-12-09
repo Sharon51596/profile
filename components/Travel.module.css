@@ -1,0 +1,310 @@
+.travel {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景裝飾 */
+.travel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(183, 110, 121, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* 海報標題區 */
+.posterHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.tourLabel {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-family: monospace;
+}
+
+.title {
+  font-size: 5rem;
+  color: var(--text-primary);
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 8px;
+  margin: 0;
+  line-height: 1;
+}
+
+.yearLabel {
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: #666;
+  margin-top: 1.5rem;
+  font-family: monospace;
+}
+
+/* 滑動區容器 */
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  min-height: 450px;
+}
+
+.navBtn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text-primary);
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(183, 110, 121, 0.1);
+}
+
+/* 滑動軌道 */
+.slider {
+  position: relative;
+  width: 350px;
+  height: 420px;
+  perspective: 1000px;
+}
+
+/* 卡片樣式 */
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.cardInner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #252525 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 卡片紋理 */
+.cardInner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3h1v1H1V3zm2-2h1v1H3V1z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.card.active .cardInner {
+  border-color: rgba(183, 110, 121, 0.3);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(183, 110, 121, 0.1);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.stopNum {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+
+.countryName {
+  font-size: 0.7rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cityName {
+  font-size: 3rem;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  flex-grow: 1;
+}
+
+/* 小型黑膠圖示 */
+.vinylIcon {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.miniVinyl {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #333 30%, #111 31%, #111 100%);
+  background-image: 
+    radial-gradient(circle, var(--accent) 15%, transparent 16%),
+    repeating-radial-gradient(circle, #222, #222 2px, #111 3px, #111 4px);
+  position: relative;
+  opacity: 0.6;
+}
+
+.card.active .miniVinyl {
+  animation: spin 4s linear infinite;
+  opacity: 1;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.quote {
+  font-style: italic;
+  color: #aaa;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+  margin: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-family: serif;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 場次列表 */
+.tourDates {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dateBtn {
+  background: transparent;
+  border: none;
+  color: #666;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.dateBtn:hover {
+  color: var(--text-primary);
+}
+
+.dateBtn.active {
+  color: var(--accent);
+}
+
+.dateNum {
+  font-family: monospace;
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.dateName {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dateBtn.active .dateName {
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* 底部裝飾 */
+.footerDecor {
+  text-align: center;
+  margin-top: 3rem;
+  color: #444;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+    letter-spacing: 4px;
+  }
+  
+  .slider {
+    width: 280px;
+    height: 360px;
+  }
+  
+  .cityName {
+    font-size: 2.2rem;
+  }
+  
+  .navBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .sliderContainer {
+    gap: 1rem;
+  }
+  
+  .tourDates {
+    gap: 0;
+  }
+  
+  .dateBtn {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .dateName {
+    font-size: 0.8rem;
+  }
+}
