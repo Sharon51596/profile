@@ -117,20 +117,26 @@
 .item {
   position: relative;
   padding-left: 2rem;
+  padding-right: 2rem;
   border-left: 1px solid rgba(255,255,255,0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: default;
+  cursor: pointer;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: 0;
+  border-radius: 0 8px 8px 0;
 }
 
 .item:hover {
   border-left-color: var(--accent);
+  background: rgba(183, 110, 121, 0.05);
 }
 
 .item::before {
   content: '';
   position: absolute;
   left: -4px;
-  top: 6px;
+  top: 1rem;
   width: 7px;
   height: 7px;
   background: var(--bg-color);
@@ -147,25 +153,41 @@
 
 .itemExpanded {
   border-left-color: var(--accent);
+  background: rgba(183, 110, 121, 0.08);
 }
 
 .itemHeader {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .expandHint {
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.7rem;
+  top: 0.5rem;
+  font-size: 1.2rem;
   color: var(--accent);
-  opacity: 0.5;
+  opacity: 0.4;
   transition: all 0.3s ease;
+  font-weight: 300;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(183, 110, 121, 0.3);
+  border-radius: 4px;
+}
+
+.item:hover .expandHint {
+  opacity: 0.8;
+  border-color: var(--accent);
 }
 
 .itemExpanded .expandHint {
   opacity: 1;
+  background: rgba(183, 110, 121, 0.2);
 }
 
 .itemDetails {
@@ -181,7 +203,7 @@
 .itemExpanded .itemDetails {
   max-height: 300px;
   opacity: 1;
-  margin-top: 0.8rem;
+  margin-top: 1rem;
 }
 
 .year {

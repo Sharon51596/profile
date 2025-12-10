@@ -7,7 +7,6 @@ export default function About() {
   const [isVisible, setIsVisible] = useState(false)
   const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set())
   const sectionRef = useRef<HTMLElement>(null)
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,25 +25,17 @@ export default function About() {
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    const itemObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = itemRefs.current.findIndex(ref => ref === entry.target)
-          if (entry.isIntersecting && index !== -1) {
-            setExpandedItems(prev => new Set([...prev, index]))
-          }
-        })
-      },
-      { threshold: 0.6, rootMargin: '-50px 0px' }
-    )
-
-    itemRefs.current.forEach((ref) => {
-      if (ref) itemObserver.observe(ref)
+  const toggleItem = (index: number) => {
+    setExpandedItems(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(index)) {
+        newSet.delete(index)
+      } else {
+        newSet.add(index)
+      }
+      return newSet
     })
-
-    return () => itemObserver.disconnect()
-  }, [isVisible])
+  }
 
   const experiences = [
     {
@@ -95,15 +86,15 @@ export default function About() {
               {experiences.map((exp, index) => (
                 <div 
                   key={index}
-                  ref={el => { itemRefs.current[index] = el }}
                   className={`${styles.item} ${expandedItems.has(index) ? styles.itemExpanded : ''}`}
+                  onClick={() => toggleItem(index)}
                 >
                   <div className={styles.itemHeader}>
                     <span className={styles.year}>{exp.year}</span>
                     <h4>{exp.title}</h4>
                     <p className={styles.company}>{exp.company}</p>
                     <span className={styles.expandHint}>
-                      {expandedItems.has(index) ? '▼' : '▶'}
+                      {expandedItems.has(index) ? '−' : '+'}
                     </span>
                   </div>
                   <div className={styles.itemDetails}>
