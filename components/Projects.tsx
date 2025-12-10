@@ -27,18 +27,17 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Trend Micro AI Face-Swap Scam Detection',
-      role: 'Product Launch Support',
+      title: 'Darlie Campaign',
+      role: 'Script & Copywriting',
       bullets: [
-        'Supported the full product launch workflow—from ideation to post-campaign analysis—improving overall project efficiency',
-        'Coordinated with animation studios, engineers, designers, and clients to align deliverables and ensure timely execution',
-        'Developed social content and an interactive web game, achieving 50% above-benchmark view-through rates and 3% higher CTR'
+        'Led script planning and copywriting for social media content',
+        'Ensured brand voice alignment across all deliverables'
       ],
       year: '2025',
       track: 'Track 01',
-      tags: ['Product Launch', 'Cross-functional', 'Social Content'],
-      image: '/images/projects/Trendmicro.png',
-      link: 'https://www.facebook.com/share/v/1BkyE6iCSf/',
+      tags: ['Copywriting', 'Content Strategy', 'Social Media'],
+      image: '/images/projects/Darlie.png',
+      link: 'https://www.facebook.com/share/v/1D1qY1ocXU/',
       linkText: 'View Post'
     },
     {
@@ -50,7 +49,7 @@ export default function Projects() {
         'Coordinated logistics for multi-channel activations',
         'Prepared post-campaign evaluations'
       ],
-      year: '2024',
+      year: '2025',
       track: 'Track 02',
       tags: ['Timeline Management', 'Asset Delivery', 'Multi-channel'],
       image: '/images/projects/Volkswagen.png',
@@ -59,37 +58,22 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: 'Darlie Campaign',
-      role: 'Script & Copywriting',
+      title: 'Trend Micro AI Face-Swap Scam Detection',
+      role: 'Product Launch Support',
       bullets: [
-        'Led script planning and copywriting for social media content',
-        'Ensured brand voice alignment across all deliverables'
+        'Supported the full product launch workflow—from ideation to post-campaign analysis—improving overall project efficiency',
+        'Coordinated with animation studios, engineers, designers, and clients to align deliverables and ensure timely execution',
+        'Developed social content and an interactive web game, achieving 50% above-benchmark view-through rates and 3% higher CTR'
       ],
       year: '2024',
       track: 'Track 03',
-      tags: ['Copywriting', 'Content Strategy', 'Social Media'],
-      image: '/images/projects/Darlie.png',
-      link: 'https://www.facebook.com/share/v/1D1qY1ocXU/',
+      tags: ['Product Launch', 'Cross-functional', 'Social Content'],
+      image: '/images/projects/Trendmicro.png',
+      link: 'https://www.facebook.com/share/v/1BkyE6iCSf/',
       linkText: 'View Post'
     },
     {
       id: 4,
-      title: 'Fu Jen 61st Anniversary',
-      role: 'Event General Coordinator',
-      bullets: [
-        'Coordinated logistics and scheduling for a multi-day university event',
-        'Managed manpower allocation across multiple teams',
-        'Ensured smooth execution through on-site coordination'
-      ],
-      year: '2022',
-      track: 'Track 04',
-      tags: ['Event Management', 'On-site Operations', 'Team Leadership'],
-      image: '/images/projects/FJU.PNG',
-      link: null,
-      linkText: null
-    },
-    {
-      id: 5,
       title: 'UK Senior Dating Market',
       role: 'Research Team Leader',
       bullets: [
@@ -98,9 +82,25 @@ export default function Projects() {
         'Led research planning and coordinated team deliverables'
       ],
       year: '2024',
-      track: 'Track 05',
+      track: 'Track 04',
       tags: ['Market Research', 'Consumer Analysis', 'Strategy'],
       image: '/images/projects/UK-market.png',
+      link: null,
+      linkText: null
+    },
+    {
+      id: 5,
+      title: 'Fu Jen 61st Anniversary',
+      role: 'Event General Coordinator',
+      bullets: [
+        'Coordinated logistics and scheduling for a multi-day university event',
+        'Managed manpower allocation across multiple teams',
+        'Ensured smooth execution through on-site coordination'
+      ],
+      year: '2022',
+      track: 'Track 05',
+      tags: ['Event Management', 'On-site Operations', 'Team Leadership'],
+      image: '/images/projects/FJU.PNG',
       link: null,
       linkText: null
     },
