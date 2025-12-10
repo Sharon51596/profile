@@ -30,6 +30,7 @@ export default function About() {
         <div className={`${styles.sectionHeader} ${isVisible ? styles.visible : ''}`}>
           <h2 className={styles.title}>Liner Notes</h2>
           <p className={styles.subtitle}>Side A: Professional / Side B: Personal</p>
+          <p className={styles.quote}>&ldquo;Challenges sharpen the process. Problems accelerate the solution.&rdquo;</p>
         </div>
         
         <div className={styles.content}>
