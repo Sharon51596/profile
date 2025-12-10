@@ -126,8 +126,12 @@ export default function About() {
               <div className={styles.skillTags}>
                 <span>Google Analytics</span>
                 <span>Meta Ads Manager</span>
-                <span>Tableau</span>
+                <span>Canva</span>
                 <span>SalesForce</span>
+                <span>Maconomy</span>
+                <span>Microsoft Office (Excel, PowerPoint, Word, Outlook)</span>
+                <span>Adobe Analytics</span>
+                <span>Tableau</span>
               </div>
             </div>
           </div>
