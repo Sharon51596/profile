@@ -67,7 +67,7 @@ export default function Hero() {
             Now Playing
           </span>
           <h1 className={styles.title}>
-            {'Sharon MA YU-TING'.split('').map((char, i) => (
+            {'MA YU-TING'.split('').map((char, i) => (
               <span 
                 key={i} 
                 className={styles.titleChar}
