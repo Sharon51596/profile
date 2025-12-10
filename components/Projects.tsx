@@ -27,6 +27,22 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: 'Trend Micro AI Face-Swap Scam Detection',
+      role: 'Product Launch Support',
+      bullets: [
+        'Supported the full product launch workflow—from ideation to post-campaign analysis—improving overall project efficiency',
+        'Coordinated with animation studios, engineers, designers, and clients to align deliverables and ensure timely execution',
+        'Developed social content and an interactive web game, achieving 50% above-benchmark view-through rates and 3% higher CTR'
+      ],
+      year: '2025',
+      track: 'Track 01',
+      tags: ['Product Launch', 'Cross-functional', 'Social Content'],
+      image: '/images/projects/Trendmicro.png',
+      link: 'https://www.facebook.com/share/v/1BkyE6iCSf/',
+      linkText: 'View Post'
+    },
+    {
+      id: 2,
       title: 'Volkswagen Taiwan',
       role: 'Activation Campaign',
       bullets: [
@@ -35,14 +51,14 @@ export default function Projects() {
         'Prepared post-campaign evaluations'
       ],
       year: '2024',
-      track: 'Track 01',
+      track: 'Track 02',
       tags: ['Timeline Management', 'Asset Delivery', 'Multi-channel'],
       image: '/images/projects/Volkswagen.png',
       link: 'https://youtu.be/PLVMRNURy8E?si=kTX0ZUXuH-GIvL5g',
       linkText: 'Watch Video'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Darlie Campaign',
       role: 'Script & Copywriting',
       bullets: [
@@ -50,14 +66,14 @@ export default function Projects() {
         'Ensured brand voice alignment across all deliverables'
       ],
       year: '2024',
-      track: 'Track 02',
+      track: 'Track 03',
       tags: ['Copywriting', 'Content Strategy', 'Social Media'],
       image: '/images/projects/Darlie.png',
       link: 'https://www.facebook.com/share/v/1D1qY1ocXU/',
       linkText: 'View Post'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Fu Jen 61st Anniversary',
       role: 'Event General Coordinator',
       bullets: [
@@ -66,14 +82,14 @@ export default function Projects() {
         'Ensured smooth execution through on-site coordination'
       ],
       year: '2022',
-      track: 'Track 03',
+      track: 'Track 04',
       tags: ['Event Management', 'On-site Operations', 'Team Leadership'],
       image: '/images/projects/FJU.PNG',
       link: null,
       linkText: null
     },
     {
-      id: 4,
+      id: 5,
       title: 'UK Senior Dating Market',
       role: 'Research Team Leader',
       bullets: [
@@ -82,7 +98,7 @@ export default function Projects() {
         'Led research planning and coordinated team deliverables'
       ],
       year: '2024',
-      track: 'Track 04',
+      track: 'Track 05',
       tags: ['Market Research', 'Consumer Analysis', 'Strategy'],
       image: '/images/projects/UK-market.png',
       link: null,
