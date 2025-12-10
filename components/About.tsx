@@ -5,7 +5,9 @@ import styles from './About.module.css'
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false)
+  const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set())
   const sectionRef = useRef<HTMLElement>(null)
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,6 +26,59 @@ export default function About() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const itemObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = itemRefs.current.findIndex(ref => ref === entry.target)
+          if (entry.isIntersecting && index !== -1) {
+            setExpandedItems(prev => new Set([...prev, index]))
+          }
+        })
+      },
+      { threshold: 0.6, rootMargin: '-50px 0px' }
+    )
+
+    itemRefs.current.forEach((ref) => {
+      if (ref) itemObserver.observe(ref)
+    })
+
+    return () => itemObserver.disconnect()
+  }, [isVisible])
+
+  const experiences = [
+    {
+      year: '2025',
+      title: 'PM Assistant',
+      company: 'DBS Bank',
+      bullets: [
+        'Consolidated project and marketing data, improving targeting accuracy by ~15%',
+        'Analyzed 200+ customer feedback entries, reducing recurring issues by ~20%',
+        'Coordinated cross-team communication and documentation to streamline workflows'
+      ]
+    },
+    {
+      year: '2024',
+      title: 'Account Executive',
+      company: 'Ogilvy',
+      bullets: [
+        'Supported Volkswagen Taiwan activation campaigns, managing timelines and asset delivery',
+        'Served as primary liaison to ensure alignment across clients, creative teams, and production',
+        'Coordinated logistics for multi-channel activations and prepared post-campaign evaluations'
+      ]
+    },
+    {
+      year: '2023-2024',
+      title: 'MSc Marketing Management',
+      company: 'University of Southampton',
+      bullets: [
+        'Marketing Communications and Media Management',
+        'Digital Marketing Strategy',
+        'Measuring Marketing Effectiveness'
+      ]
+    }
+  ]
+
   return (
     <section id="about" className={styles.about} ref={sectionRef}>
       <div className={styles.container}>
@@ -37,36 +92,29 @@ export default function About() {
           <div className={`${styles.sideA} ${isVisible ? styles.visible : ''}`}>
             <h3>Side A: Professional</h3>
             <div className={styles.timeline}>
-              <div className={styles.item}>
-                <span className={styles.year}>2025</span>
-                <h4>PM Assistant</h4>
-                <p className={styles.company}>DBS Bank</p>
-                <ul className={styles.bulletList}>
-                  <li>Consolidated project and marketing data, improving targeting accuracy by ~15%</li>
-                  <li>Analyzed 200+ customer feedback entries, reducing recurring issues by ~20%</li>
-                  <li>Coordinated cross-team communication and documentation to streamline workflows</li>
-                </ul>
-              </div>
-              <div className={styles.item}>
-                <span className={styles.year}>2024</span>
-                <h4>Account Executive</h4>
-                <p className={styles.company}>Ogilvy</p>
-                <ul className={styles.bulletList}>
-                  <li>Supported Volkswagen Taiwan activation campaigns, managing timelines and asset delivery</li>
-                  <li>Served as primary liaison to ensure alignment across clients, creative teams, and production</li>
-                  <li>Coordinated logistics for multi-channel activations and prepared post-campaign evaluations</li>
-                </ul>
-              </div>
-               <div className={styles.item}>
-                <span className={styles.year}>2023-2024</span>
-                <h4>MSc Marketing Management</h4>
-                <p className={styles.company}>University of Southampton</p>
-                <ul className={styles.bulletList}>
-                  <li>Marketing Communications and Media Management</li>
-                  <li>Digital Marketing Strategy</li>
-                  <li>Measuring Marketing Effectiveness</li>
-                </ul>
-              </div>
+              {experiences.map((exp, index) => (
+                <div 
+                  key={index}
+                  ref={el => { itemRefs.current[index] = el }}
+                  className={`${styles.item} ${expandedItems.has(index) ? styles.itemExpanded : ''}`}
+                >
+                  <div className={styles.itemHeader}>
+                    <span className={styles.year}>{exp.year}</span>
+                    <h4>{exp.title}</h4>
+                    <p className={styles.company}>{exp.company}</p>
+                    <span className={styles.expandHint}>
+                      {expandedItems.has(index) ? '▼' : '▶'}
+                    </span>
+                  </div>
+                  <div className={styles.itemDetails}>
+                    <ul className={styles.bulletList}>
+                      {exp.bullets.map((bullet, i) => (
+                        <li key={i}>{bullet}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
