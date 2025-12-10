@@ -132,6 +132,7 @@ export default function About() {
                 <span>Microsoft Office (Excel, PowerPoint, Word, Outlook)</span>
                 <span>Adobe Analytics</span>
                 <span>Tableau</span>
+                <span>LINE Official Account Manager</span>
               </div>
             </div>
           </div>
