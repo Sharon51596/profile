@@ -116,7 +116,7 @@ export default function Projects() {
       year: '2021',
       track: 'Track 06',
       tags: ['Exhibition Planning', 'Creative Direction', 'Project Coordination'],
-      image: '/images/projects/FJU-60th.png',
+      image: '/images/projects/FJU-60th.jpg',
       link: null,
       linkText: null
     },
