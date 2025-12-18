@@ -104,6 +104,22 @@ export default function Projects() {
       link: null,
       linkText: null
     },
+    {
+      id: 6,
+      title: '60th Anniversary Permanent Exhibition',
+      role: 'Planning Team Lead',
+      bullets: [
+        'As a tour guide, introduced the university\'s 60-year history to 10 teams in a multi-faceted way',
+        'Developed the creative concept and programmed the traffic flow of the exhibition',
+        'Communicated effectively with other groups and managed team workload and project schedule'
+      ],
+      year: '2021',
+      track: 'Track 06',
+      tags: ['Exhibition Planning', 'Creative Direction', 'Project Coordination'],
+      image: '/images/projects/FJU-60th.png',
+      link: null,
+      linkText: null
+    },
   ]
 
   return (
