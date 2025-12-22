@@ -111,31 +111,25 @@ export default function About() {
 
           <div className={`${styles.sideB} ${isVisible ? styles.visible : ''}`}>
             <h3>Side B: Personal</h3>
-            <div className={styles.personalTraits}>
-              <div className={styles.trait}>
-                <h4>🎧 The Listener</h4>
-                <p>Known as a steady presence among friends. Great at listening and offering sincere advice and support.</p>
-              </div>
-              <div className={styles.trait}>
-                <h4>✨ The Believer</h4>
-                <p>Believes there is always a way out. No problem is too big to solve.</p>
-              </div>
+            
+            <div className={styles.sectionBlock}>
+              <h4>Who I Am</h4>
+              <p>I work across digital marketing, campaign execution, and cross-functional collaboration.</p>
+              <p>My experience spans automotive, FMCG, and technology industries, where I support campaigns from planning to execution and post-campaign review.</p>
+              <p>I&apos;m most comfortable in roles that require structure, coordination, and clarity—helping teams turn complex ideas into actionable plans and well-executed outcomes.</p>
             </div>
 
-            <div className={styles.music}>
-              <h4>On Rotation 🎵</h4>
-              <div className={styles.genres}>
-                <span>Hip Hop</span>
-                <span>Pop</span>
-                <span>R&B</span>
-              </div>
+            <div className={styles.sectionBlock}>
+              <h4>How I Work</h4>
+              <p>I approach projects with a balance of structure and adaptability.</p>
+              <p>I regularly work with data and Excel to organize information, track performance, and support decision-making through clear documentation.</p>
+              <p>At the same time, I value strong communication and alignment across teams. Whether collaborating with marketing, design, engineering, or external partners, I focus on keeping workflows clear, expectations aligned, and execution consistent across channels.</p>
             </div>
-            
-            <div className={styles.worldView}>
-              <h4>🌍 Global Perspective</h4>
-              <p>
-                Traveled across the world during my studies abroad — from the misty streets of London to the Northern Lights in Iceland. I believe the world is vast, and perspective shapes everything.
-              </p>
+
+            <div className={styles.sectionBlock}>
+              <h4>What I Care About</h4>
+              <p>I believe good work happens when challenges become part of the routine—and problems become opportunities to build better solutions.</p>
+              <p>I&apos;m drawn to projects that require thoughtful coordination, audience-centric thinking, and long-term consistency rather than one-off ideas.</p>
             </div>
           </div>
         </div>

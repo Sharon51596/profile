@@ -262,99 +262,64 @@
   margin-bottom: 0;
 }
 
-.personalTraits {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-.trait {
-  transition: transform 0.3s ease;
-}
-
-.trait:hover {
-  transform: translateX(10px);
-}
-
-.trait h4 {
-  color: var(--text-primary);
-  margin-bottom: 0.8rem;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.trait p {
-  color: #bbb;
-  line-height: 1.7;
-}
-
-.music {
-  margin-bottom: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--glass-border);
-}
-
-.music h4 {
-  margin-bottom: 1.5rem;
-  color: var(--text-secondary);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.genres {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.genres span {
-  padding: 0.6rem 1.2rem;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--glass-border);
-  font-size: 0.85rem;
-  color: #ccc;
-  font-family: monospace;
-  cursor: default;
+/* Side B Section Blocks */
+.sectionBlock {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--glass-border);
   opacity: 0;
-  animation: tagFadeIn 0.6s ease forwards;
+  transform: translateY(20px);
+  animation: blockFadeIn 0.6s ease forwards;
 }
 
-/* 音樂標籤依序淡入 */
-.genres span:nth-child(1) { animation-delay: 0.2s; }
-.genres span:nth-child(2) { animation-delay: 0.3s; }
-.genres span:nth-child(3) { animation-delay: 0.4s; }
-.genres span:nth-child(4) { animation-delay: 0.5s; }
-.genres span:nth-child(5) { animation-delay: 0.6s; }
-
-/* 輕微 hover 效果 */
-.genres span:hover {
-  border-color: rgba(183, 110, 121, 0.3);
-  box-shadow: 0 0 10px rgba(183, 110, 121, 0.1);
+.sectionBlock:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-.worldView {
-  padding-top: 2rem;
-  border-top: 1px solid var(--glass-border);
+.sectionBlock:nth-child(2) { animation-delay: 0.5s; }
+.sectionBlock:nth-child(3) { animation-delay: 0.7s; }
+.sectionBlock:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes blockFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.worldView h4 {
-  margin-bottom: 1rem;
-  color: var(--text-secondary);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.sectionBlock h4 {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  position: relative;
+  padding-left: 1rem;
 }
 
-.worldView p {
-  color: #aaa;
-  font-style: italic;
-  font-size: 0.95rem;
+.sectionBlock h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 70%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.sectionBlock p {
+  color: #bbb;
+  font-size: 0.92rem;
   line-height: 1.8;
-  font-family: serif;
+  margin-bottom: 0.8rem;
+}
+
+.sectionBlock p:last-child {
+  margin-bottom: 0;
 }
 
 /* 技能區塊 */
