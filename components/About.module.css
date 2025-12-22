@@ -264,23 +264,35 @@
 
 /* Side B Section Blocks */
 .sectionBlock {
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--glass-border);
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   transform: translateY(20px);
   animation: blockFadeIn 0.6s ease forwards;
 }
 
 .sectionBlock:last-child {
-  border-bottom: none;
   margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .sectionBlock:nth-child(2) { animation-delay: 0.5s; }
 .sectionBlock:nth-child(3) { animation-delay: 0.7s; }
 .sectionBlock:nth-child(4) { animation-delay: 0.9s; }
+
+.sectionBlock:hover {
+  border-color: rgba(183, 110, 121, 0.4);
+  background: rgba(183, 110, 121, 0.05);
+}
+
+.sectionExpanded {
+  border-color: rgba(183, 110, 121, 0.5);
+  background: rgba(183, 110, 121, 0.08);
+}
 
 @keyframes blockFadeIn {
   to {
@@ -289,14 +301,21 @@
   }
 }
 
+.sectionHeader2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
 .sectionBlock h4 {
   color: var(--accent);
   font-size: 1.1rem;
   font-weight: 500;
-  margin-bottom: 1.2rem;
   letter-spacing: 1px;
   position: relative;
   padding-left: 1rem;
+  margin: 0;
 }
 
 .sectionBlock h4::before {
@@ -306,19 +325,74 @@
   top: 50%;
   transform: translateY(-50%);
   width: 3px;
-  height: 70%;
+  height: 100%;
   background: var(--accent);
   border-radius: 2px;
 }
 
-.sectionBlock p {
+.sectionToggle {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(183, 110, 121, 0.3);
+  border-radius: 6px;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.sectionBlock:hover .sectionToggle {
+  border-color: var(--accent);
+  background: rgba(183, 110, 121, 0.1);
+}
+
+.sectionExpanded .sectionToggle {
+  background: rgba(183, 110, 121, 0.2);
+  border-color: var(--accent);
+}
+
+.tagline {
+  color: #999;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(183, 110, 121, 0.2);
+}
+
+.sectionContent {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s ease 0.1s,
+              margin 0.4s ease,
+              padding 0.4s ease;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.sectionExpanded .sectionContent {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.sectionContent p {
   color: #bbb;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.8;
   margin-bottom: 0.8rem;
 }
 
-.sectionBlock p:last-child {
+.sectionContent p:last-child {
   margin-bottom: 0;
 }
 

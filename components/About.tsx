@@ -6,6 +6,7 @@ import styles from './About.module.css'
 export default function About() {
   const [isVisible, setIsVisible] = useState(false)
   const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set())
+  const [expandedSideB, setExpandedSideB] = useState<Set<number>>(new Set())
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -36,6 +37,47 @@ export default function About() {
       return newSet
     })
   }
+
+  const toggleSideB = (index: number) => {
+    setExpandedSideB(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(index)) {
+        newSet.delete(index)
+      } else {
+        newSet.add(index)
+      }
+      return newSet
+    })
+  }
+
+  const sideBSections = [
+    {
+      title: 'Who I Am',
+      tagline: 'Marketing professional across automotive, FMCG & technology.',
+      content: [
+        'I work across digital marketing, campaign execution, and cross-functional collaboration.',
+        'My experience spans automotive, FMCG, and technology industries, where I support campaigns from planning to execution and post-campaign review.',
+        'I\'m most comfortable in roles that require structure, coordination, and clarity—helping teams turn complex ideas into actionable plans and well-executed outcomes.'
+      ]
+    },
+    {
+      title: 'How I Work',
+      tagline: 'Structure meets adaptability, powered by data and clear communication.',
+      content: [
+        'I approach projects with a balance of structure and adaptability.',
+        'I regularly work with data and Excel to organize information, track performance, and support decision-making through clear documentation.',
+        'At the same time, I value strong communication and alignment across teams. Whether collaborating with marketing, design, engineering, or external partners, I focus on keeping workflows clear, expectations aligned, and execution consistent across channels.'
+      ]
+    },
+    {
+      title: 'What I Care About',
+      tagline: 'Turning challenges into routine, and problems into opportunities.',
+      content: [
+        'I believe good work happens when challenges become part of the routine—and problems become opportunities to build better solutions.',
+        'I\'m drawn to projects that require thoughtful coordination, audience-centric thinking, and long-term consistency rather than one-off ideas.'
+      ]
+    }
+  ]
 
   const experiences = [
     {
@@ -112,25 +154,26 @@ export default function About() {
           <div className={`${styles.sideB} ${isVisible ? styles.visible : ''}`}>
             <h3>Side B: Personal</h3>
             
-            <div className={styles.sectionBlock}>
-              <h4>Who I Am</h4>
-              <p>I work across digital marketing, campaign execution, and cross-functional collaboration.</p>
-              <p>My experience spans automotive, FMCG, and technology industries, where I support campaigns from planning to execution and post-campaign review.</p>
-              <p>I&apos;m most comfortable in roles that require structure, coordination, and clarity—helping teams turn complex ideas into actionable plans and well-executed outcomes.</p>
-            </div>
-
-            <div className={styles.sectionBlock}>
-              <h4>How I Work</h4>
-              <p>I approach projects with a balance of structure and adaptability.</p>
-              <p>I regularly work with data and Excel to organize information, track performance, and support decision-making through clear documentation.</p>
-              <p>At the same time, I value strong communication and alignment across teams. Whether collaborating with marketing, design, engineering, or external partners, I focus on keeping workflows clear, expectations aligned, and execution consistent across channels.</p>
-            </div>
-
-            <div className={styles.sectionBlock}>
-              <h4>What I Care About</h4>
-              <p>I believe good work happens when challenges become part of the routine—and problems become opportunities to build better solutions.</p>
-              <p>I&apos;m drawn to projects that require thoughtful coordination, audience-centric thinking, and long-term consistency rather than one-off ideas.</p>
-            </div>
+            {sideBSections.map((section, index) => (
+              <div 
+                key={index}
+                className={`${styles.sectionBlock} ${expandedSideB.has(index) ? styles.sectionExpanded : ''}`}
+                onClick={() => toggleSideB(index)}
+              >
+                <div className={styles.sectionHeader2}>
+                  <h4>{section.title}</h4>
+                  <span className={styles.sectionToggle}>
+                    {expandedSideB.has(index) ? '−' : '+'}
+                  </span>
+                </div>
+                <p className={styles.tagline}>{section.tagline}</p>
+                <div className={styles.sectionContent}>
+                  {section.content.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
